@@ -1,18 +1,5 @@
 defmodule BetterMangler do
   @moduledoc """
-  Documentation for BetterMangler.
+  BetterMangler takes an acronym and creates a fake and funny definition.
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> BetterMangler.hello
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end

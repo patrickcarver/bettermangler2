@@ -5,7 +5,15 @@ defmodule BetterMangler do
   
   def run(acronym) do
     list = String.codepoints(acronym)
+    nouns = load_json("../txt/nouns.json")
     {:ok, list}
+  end
+
+  defp load_json(file) do
+    file
+    |> Path.expand(__DIR__)
+    |> File.read!()
+    |> Poison.decode!()
   end
 
 

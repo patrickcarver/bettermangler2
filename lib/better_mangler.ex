@@ -4,6 +4,9 @@ defmodule BetterMangler do
   """
   
   def run(acronym) do
-    {:ok, acronym}
+    list = String.codepoints(acronym)
+    {:ok, list}
   end
+
+
 end

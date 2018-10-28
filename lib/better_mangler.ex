@@ -4,8 +4,9 @@ defmodule BetterMangler do
   """
   
   def run(acronym) do
-    list = String.codepoints(acronym)
-    nouns = load_json("../txt/nouns.json")
+    %{"nouns" => nouns} = load_json("../txt/nouns.json")
+    list = String.codepoints(acronym)    
+
     {:ok, list}
   end
 

@@ -4,6 +4,6 @@ defmodule BetterMangler do
   """
 
   def mangle(word) do
-    {:ok, "word"}
+    {:ok, word}
   end
 end

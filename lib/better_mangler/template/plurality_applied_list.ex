@@ -21,14 +21,6 @@ defmodule BetterMangler.Template.PluralityAppliedList do
     process_plurality(starting: updated_starting, ending: updated_ending, last_noun_plurality: updated_last_noun_plurality)
   end
 
-  defp update_map(%{part_of_speech: "adverb"} = map, last_noun_plurality) do
-    { map, last_noun_plurality }
-  end
-
-  defp update_map(%{part_of_speech: "adjective"} = map, last_noun_plurality) do
-    { map, last_noun_plurality }
-  end
-
   defp update_map(%{part_of_speech: "noun"} = map, _last_noun_plurality) do
     updated_last_noun_plurality = get_random_plurality()
     updated_map = Map.put(map, :plurality, updated_last_noun_plurality)
@@ -44,6 +36,10 @@ defmodule BetterMangler.Template.PluralityAppliedList do
 
     updated_map = Map.put(map, :plurality, updated_last_noun_plurality)
     { updated_map, last_noun_plurality}
+  end
+
+  defp update_map(map, last_noun_plurality) do
+    { map, last_noun_plurality }
   end
 
   defp update_last_noun_plurality(last_noun_plurality) do

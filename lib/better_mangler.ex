@@ -14,11 +14,52 @@ defmodule BetterMangler do
       Enum.zip(letters, template)
       |> Enum.map(fn {letter, part_of_speech} -> %{letter: letter, part_of_speech: part_of_speech} end)
       |> Enum.map(&apply_tense_to_verbs/1)
-
+      |> apply_plurality()
 
 #    updated_template = Enum.map(template, &assign_noun_plurality/1)
     
     {:ok, updated_template}
+  end
+
+  defp apply_plurality(template) do
+    process_plurality(starting: template, ending: [], last_noun_plurality: nil)
+  end
+
+  defp process_plurality(starting: [], ending: ending, last_noun_plurality: _) do
+    ending
+  end
+
+  defp process_plurality(starting: starting, ending: ending, last_noun_plurality: last_noun_plurality) do
+    [map | updated_starting] = starting
+
+    {updated_map, updated_last_noun_plurality} = update_map(map, last_noun_plurality)
+
+    updated_ending = ending ++ [updated_map]
+    
+    process_plurality(starting: updated_starting, ending: updated_ending, last_noun_plurality: updated_last_noun_plurality)
+  end
+
+  defp update_map(%{part_of_speech: "adverb"} = map, last_noun_plurality) do
+    { map, last_noun_plurality }
+  end
+
+  defp update_map(%{part_of_speech: "adjective"} = map, last_noun_plurality) do
+    { map, last_noun_plurality }
+  end
+
+  defp update_map(%{part_of_speech: "noun"} = map, _last_noun_plurality) do
+    updated_last_noun_plurality = get_random_plurality()
+    updated_map = Map.put(map, :plurality, updated_last_noun_plurality)
+    { updated_map, updated_last_noun_plurality}
+  end  
+
+  defp update_map(%{part_of_speech: "verb", tense: "past"} = map, last_noun_plurality) do
+    { map, last_noun_plurality}
+  end
+
+  defp update_map(%{part_of_speech: "verb", tense: "present"} = map, last_noun_plurality) do
+    updated_map = Map.put(map, :plurality, last_noun_plurality)
+    { updated_map, last_noun_plurality}
   end
 
   defp get_template(letters) do

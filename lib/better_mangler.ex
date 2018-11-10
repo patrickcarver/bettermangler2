@@ -4,7 +4,11 @@ defmodule BetterMangler do
   """
 
   alias BetterMangler.Template.{
-    LetteredList, PartsOfSpeechList, PluralityAppliedList, TenseAppliedList, WordedList
+    LetteredList,
+    PartsOfSpeechList,
+    PluralityAppliedList,
+    TenseAppliedList,
+    WordedList
   }
 
   alias BetterMangler.WordPlurality
@@ -18,7 +22,7 @@ defmodule BetterMangler do
     letters = String.codepoints(word)
     parts_of_speech_list = PartsOfSpeechList.generate(letters)
 
-    definition = 
+    definition =
       LetteredList.generate(letters, parts_of_speech_list)
       |> TenseAppliedList.generate()
       |> PluralityAppliedList.generate()
@@ -27,6 +31,6 @@ defmodule BetterMangler do
       |> Enum.map(&String.capitalize/1)
       |> Enum.join(" ")
 
-    { :ok, definition }
+    {:ok, definition}
   end
 end

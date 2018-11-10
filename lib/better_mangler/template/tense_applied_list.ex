@@ -1,6 +1,6 @@
 defmodule BetterMangler.Template.TenseAppliedList do
   @moduledoc """
-  
+
   """
 
   @doc """
@@ -13,12 +13,12 @@ defmodule BetterMangler.Template.TenseAppliedList do
   defp apply_tense_to_verbs(%{part_of_speech: "verb"} = map) do
     Map.put(map, :tense, get_random_tense())
   end
-  
+
   defp apply_tense_to_verbs(map) do
     map
   end
-  
+
   defp get_random_tense() do
     Enum.random(["past", "present"])
-  end  
+  end
 end

@@ -1,16 +1,16 @@
 defmodule BetterMangler.WordPlurality do
   @moduledoc """
-  
+
   """
 
   alias Inflex
   alias Verbs
 
   @doc """
-  
+
   """
   def handle_list(worded_list) do
-    Enum.map(worded_list, &handle_map/1)    
+    Enum.map(worded_list, &handle_map/1)
   end
 
   defp handle_map(%{part_of_speech: "noun", plurality: "plural"} = map) do

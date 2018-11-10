@@ -6,12 +6,15 @@ defmodule BetterMangler do
   alias BetterMangler.Template.{
     LetteredList, PartsOfSpeechList, PluralityAppliedList, TenseAppliedList, WordedList
   }
-  
+
+  alias BetterMangler.Grammar.Handler
   alias RandomWordService
 
-  def mangle(word) do
+  def start() do
     RandomWordService.init()
+  end
 
+  def mangle(word) do
     letters = String.codepoints(word)
     parts_of_speech_list = PartsOfSpeechList.generate(letters)
 
@@ -21,9 +24,6 @@ defmodule BetterMangler do
       |> PluralityAppliedList.generate()
       |> WordedList.generate(RandomWordService)
 
-
-
-    
     {:ok, updated_template}
   end
 end

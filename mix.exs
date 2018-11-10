@@ -23,7 +23,7 @@ defmodule BetterMangler.MixProject do
     [
       {:poison, "~> 3.1"},
       {:inflex, "~> 1.10.0"},
-      {:verbs, "~> 0.5.4"},
+      {:verbs, git: "https://github.com/shannonwells/verbs_ex.git"},
       {:random_word_service, git: "https://github.com/patrickcarver/random_word_service.git", tag: "v0.2"}
     ]
   end

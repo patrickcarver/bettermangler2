@@ -38,11 +38,8 @@ defmodule BetterMangler do
 
   defp process_plurality(starting: starting, ending: ending, last_noun_plurality: last_noun_plurality) do
     [map | updated_starting] = starting
-
     {updated_map, updated_last_noun_plurality} = update_map(map, last_noun_plurality)
-
     updated_ending = ending ++ [updated_map]
-    
     process_plurality(starting: updated_starting, ending: updated_ending, last_noun_plurality: updated_last_noun_plurality)
   end
 

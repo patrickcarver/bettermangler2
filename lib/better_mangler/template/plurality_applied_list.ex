@@ -27,10 +27,6 @@ defmodule BetterMangler.Template.PluralityAppliedList do
     { updated_map, updated_last_noun_plurality}
   end  
 
-  defp update_map(%{part_of_speech: "verb", tense: "past"} = map, last_noun_plurality) do
-    { map, last_noun_plurality}
-  end
-
   defp update_map(%{part_of_speech: "verb", tense: "present"} = map, last_noun_plurality) do
     updated_last_noun_plurality = update_last_noun_plurality(last_noun_plurality)
 

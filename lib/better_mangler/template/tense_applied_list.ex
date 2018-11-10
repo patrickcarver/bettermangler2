@@ -4,7 +4,7 @@ defmodule BetterMangler.Template.TenseAppliedList do
   """
 
   @doc """
-  
+    
   """
   def generate(lettered_list) do
     Enum.map(lettered_list, &apply_tense_to_verbs/1)

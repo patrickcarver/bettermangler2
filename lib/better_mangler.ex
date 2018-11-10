@@ -7,7 +7,7 @@ defmodule BetterMangler do
     LetteredList, PartsOfSpeechList, PluralityAppliedList, TenseAppliedList, WordedList
   }
 
-  alias BetterMangler.Grammar.Handler
+  alias BetterMangler.WordPlurality
   alias RandomWordService
 
   def start() do
@@ -18,15 +18,15 @@ defmodule BetterMangler do
     letters = String.codepoints(word)
     parts_of_speech_list = PartsOfSpeechList.generate(letters)
 
-    updated_template = 
+    definition = 
       LetteredList.generate(letters, parts_of_speech_list)
       |> TenseAppliedList.generate()
       |> PluralityAppliedList.generate()
       |> WordedList.generate(RandomWordService)
-      |> Handler.handle_list()
+      |> WordPlurality.handle_list()
       |> Enum.map(&String.capitalize/1)
       |> Enum.join(" ")
 
-    {:ok, updated_template}
+    { :ok, definition }
   end
 end

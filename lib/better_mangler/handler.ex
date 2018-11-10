@@ -1,4 +1,4 @@
-defmodule BetterMangler.Grammar.Handler do
+defmodule BetterMangler.WordPlurality do
   @moduledoc """
   
   """

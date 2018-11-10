@@ -4,8 +4,11 @@ defmodule BetterMangler do
   """
 
   alias BetterMangler.SentenceTemplate
+  alias RandomWordService
 
   def mangle(word) do
+    RandomWordService.init()
+
     letters = String.codepoints(word)
     
     template = get_template(letters)
@@ -15,6 +18,12 @@ defmodule BetterMangler do
       |> Enum.map(fn {letter, part_of_speech} -> %{letter: letter, part_of_speech: part_of_speech} end)
       |> Enum.map(&apply_tense_to_verbs/1)
       |> apply_plurality()
+      |> Enum.map(fn map -> 
+        {:ok, word } = RandomWordService.get_random_word(starts_with: map.letter, part_of_speech: map.part_of_speech) 
+        map
+        |> Map.put(:word, word)
+        |> Map.delete(:letter)
+      end)
     
     {:ok, updated_template}
   end

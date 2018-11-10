@@ -15,8 +15,6 @@ defmodule BetterMangler do
       |> Enum.map(fn {letter, part_of_speech} -> %{letter: letter, part_of_speech: part_of_speech} end)
       |> Enum.map(&apply_tense_to_verbs/1)
       |> apply_plurality()
-
-#    updated_template = Enum.map(template, &assign_noun_plurality/1)
     
     {:ok, updated_template}
   end
@@ -58,7 +56,12 @@ defmodule BetterMangler do
   end
 
   defp update_map(%{part_of_speech: "verb", tense: "present"} = map, last_noun_plurality) do
-    updated_map = Map.put(map, :plurality, last_noun_plurality)
+    updated_last_noun_plurality = case last_noun_plurality do
+                                    nil -> get_random_plurality()
+                                    _ -> last_noun_plurality
+                                  end
+
+    updated_map = Map.put(map, :plurality, updated_last_noun_plurality)
     { updated_map, last_noun_plurality}
   end
 

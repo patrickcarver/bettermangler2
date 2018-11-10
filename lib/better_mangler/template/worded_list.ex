@@ -7,7 +7,7 @@ defmodule BetterMangler.Template.WordedList do
   
   """
   def generate(plurality_applied_list, word_service) do
-    Enum.map(fn map -> 
+    Enum.map(plurality_applied_list, fn map -> 
       word = get_random_word(map.letter, map.part_of_speech, word_service)
 
       map

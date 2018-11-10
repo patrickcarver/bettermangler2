@@ -1,4 +1,4 @@
-defmodule Template.LetteredList do
+defmodule BetterMangler.Template.LetteredList do
   @moduledoc """
   
   """

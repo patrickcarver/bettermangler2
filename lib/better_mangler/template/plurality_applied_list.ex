@@ -53,7 +53,7 @@ defmodule BetterMangler.Template.PluralityAppliedList do
     end    
   end
 
-  defp  defp get_random_plurality() do
+  defp get_random_plurality() do
     Enum.random(["singular", "plural"])
   end 
 end

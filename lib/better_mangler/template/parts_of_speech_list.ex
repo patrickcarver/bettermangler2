@@ -8,7 +8,13 @@ defmodule BetterMangler.Template.PartsOfSpeechList do
   @doc """
   
   """
-  def get_random_by_size(size) do
+  def generate(letter_list) do
+    letter_list
+    |> Enum.count()
+    |> get_random_by_size()    
+  end
+
+  defp get_random_by_size(size) do
     "../../../json/sentence_templates.json"
     |> Path.expand(__DIR__)
     |> File.read!()

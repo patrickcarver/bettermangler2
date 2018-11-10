@@ -23,6 +23,9 @@ defmodule BetterMangler do
       |> TenseAppliedList.generate()
       |> PluralityAppliedList.generate()
       |> WordedList.generate(RandomWordService)
+      |> Handler.handle_list()
+      |> Enum.map(&String.capitalize/1)
+      |> Enum.join(" ")
 
     {:ok, updated_template}
   end

@@ -26,7 +26,7 @@ defmodule BetterMangler do
       LetteredList.generate(letters, parts_of_speech_list)
       |> TenseAppliedList.generate()
       |> PluralityAppliedList.generate()
-      |> WordedList.generate(RandomWordService)
+      |> WordedList.generate(&RandomWordService.get_random_word/1)
       |> WordPlurality.handle_list()
       |> Enum.map(&String.capitalize/1)
       |> Enum.join(" ")

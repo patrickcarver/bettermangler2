@@ -14,6 +14,7 @@ defmodule BetterMangler.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
+      mod: { BetterMangler.Application, [] },
       extra_applications: [:logger]
     ]
   end
@@ -25,7 +26,7 @@ defmodule BetterMangler.MixProject do
       {:inflex, "~> 1.10.0"},
       {:verbs, git: "https://github.com/shannonwells/verbs_ex.git"},
       {:random_word_service,
-       git: "https://github.com/patrickcarver/random_word_service.git", tag: "v0.2"}
+       git: "https://github.com/patrickcarver/random_word_service.git", tag: "v1.0.2"}
     ]
   end
 end

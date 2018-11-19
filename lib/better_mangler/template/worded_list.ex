@@ -16,6 +16,7 @@ defmodule BetterMangler.Template.WordedList do
     end)
   end
 
+  # get rid of this and just call random_word_function directly
   defp get_random_word(letter, part_of_speech, random_word_function) do
     {:ok, word} =
       random_word_function.(starts_with: letter, part_of_speech: part_of_speech)

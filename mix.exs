@@ -22,11 +22,12 @@ defmodule BetterMangler.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:poison, "~> 3.1"},
-      {:inflex, "~> 1.10.0"},
-      {:verbs, git: "https://github.com/shannonwells/verbs_ex.git"},
-      {:random_word_service,
-       git: "https://github.com/patrickcarver/random_word_service.git", tag: "v1.0.2"}
+      { :poison, "~> 3.1" },
+      { :inflex, "~> 1.10.0" },
+      { :verbs, git: "https://github.com/shannonwells/verbs_ex.git" },
+      { :random_word_service,
+       git: "https://github.com/patrickcarver/random_word_service.git", tag: "v1.0.2" },
+      { :validatorex, git: "https://github.com/patrickcarver/validatorex.git", tag: "v0.2.0" }
     ]
   end
 end

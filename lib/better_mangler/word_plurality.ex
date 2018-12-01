@@ -21,6 +21,10 @@ defmodule BetterMangler.WordPlurality do
     Verbs.conjugate(word, tense: map.tense, plurality: map.plurality, person: "third")
   end
 
+  defp handle_map(%{part_of_speech: "verb", tense: "past", word: word} = map) do
+    Verbs.conjugate(word, tense: map.tense, person: "third")
+  end
+
   defp handle_map(%{word: word}) do
     word
   end

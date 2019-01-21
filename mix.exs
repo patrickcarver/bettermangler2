@@ -27,7 +27,7 @@ defmodule BetterMangler.MixProject do
       { :verbs, git: "https://github.com/shannonwells/verbs_ex.git" },
       { :random_word_service,
        git: "https://github.com/patrickcarver/random_word_service.git", tag: "v1.0.2" },
-      { :validatorex, git: "https://github.com/patrickcarver/validatorex.git", tag: "v0.2.0" }
+      { :validatorex, git: "https://github.com/patrickcarver/validatorex.git", tag: "v0.3.0" }
     ]
   end
 end

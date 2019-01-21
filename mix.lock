@@ -2,6 +2,6 @@
   "inflex": {:hex, :inflex, "1.10.0", "8366a7696e70e1813aca102e61274addf85d99f4a072b2f9c7984054ea1b9d29", [:mix], []},
   "poison": {:hex, :poison, "3.1.0", "d9eb636610e096f86f25d9a46f35a9facac35609a7591b3be3326e99a0484665", [:mix], []},
   "random_word_service": {:git, "https://github.com/patrickcarver/random_word_service.git", "3e04ff8c08ffb07933ff977e7f063a95c071d049", [tag: "v1.0.2"]},
-  "validatorex": {:git, "https://github.com/patrickcarver/validatorex.git", "4754d10bdb25db50decda64d2a7d0a7ea3ff0014", [tag: "v0.2.0"]},
+  "validatorex": {:git, "https://github.com/patrickcarver/validatorex.git", "1b3dd7d2e53f4dec4a54573e54a58cd652dcff9b", [tag: "v0.3.0"]},
   "verbs": {:git, "https://github.com/shannonwells/verbs_ex.git", "457167b0ab76baaf3fe5315b9621202d94ffd87e", []},
 }

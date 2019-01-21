@@ -1,21 +1,23 @@
 # BetterMangler
 
-**TODO: Add description**
+**Usage**
 
-## Installation
+This is currently a work in progress.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `better_mangler` to your list of dependencies in `mix.exs`:
+Clone this repository and from your local directory, run this command:
 
 ```elixir
-def deps do
-  [
-    {:better_mangler, "~> 0.1.0"}
-  ]
-end
+iex -S mix
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/better_mangler](https://hexdocs.pm/better_mangler).
+Then run:
 
+```elixir
+pid = BetterMangler.start_link
+```
+
+You can then use that pid to create get a word's "defintion"
+
+```elixir
+BetterMangler(pid, "elixir")
+```
